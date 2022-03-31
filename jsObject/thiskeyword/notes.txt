@@ -1,0 +1,81 @@
+this key word
+-----------------
+
+traditional functions have dynamic 'this..
+but if we have a function within a function in this case
+
+const userData = { 
+  username: "Reed",
+  title: "JavaScript Programmer",
+  getBio() {
+    console.log(`User ${this.username} is a ${this.title}`);
+  },
+  askToFriend() {
+    setTimeout(function() {
+      console.log(`Would you like to friend ${this.username}?`);   // this looks for a lexical scope   askToFriend() not for userData, we have to fix this by bringing this context from outer scope to askTofriend scope like below
+    }, 2000);  
+  } 
+}
+
+userData.askToFriend();
+
+ // this looks for a lexical scope   askToFriend() not for userData, we have to fix this by bringing this context from outer scope to askTofriend scope like below
+ 
+ 
+ const userData = { 
+  username: "Reed",
+  title: "JavaScript Programmer",
+  getBio() {
+    console.log(`User ${this.username} is a ${this.title}`);
+  },
+  askToFriend() {
+    let that = this;
+    setTimeout(function() {
+      console.log(`Would you like to friend ${that.username}?`);   
+    }, 2000);  
+  } 
+}
+
+userData.askToFriend();
+
+
+we can get rid of this using arrow functions.the reason why arrow function does this is becz arrow function don't have it's own this value,instead whenever 'this' is used in arrow function, it's grabed from exactly where we need from the scope above the arrow function is declared..arrow functions have lexical this
+
+e.g 3 using arrow function
+const userData = { 
+  username: "Reed",
+  title: "JavaScript Programmer",
+  getBio() {
+    console.log(`User ${this.username} is a ${this.title}`);
+  },
+  askToFriend() {
+    setTimeout(() => {
+      console.log(`Would you like to friend ${this.username}?`);   
+    }, 2000);  
+  } 
+}
+
+userData.askToFriend();
+
+
+we have to to be aware of using this in arrow function as arrow function grabs exactly where we need from the scope above the arrow function is declared
+
+e.g:4
+const userData = { 
+  username: "Reed",
+  title: "JavaScript Programmer",
+  getBio: () => {
+    console.log(`User ${this.username} is a ${this.title}`);
+    output in console:User undefined is a undefined
+     // this.usrname and this.title is nolonger grabed from the userData that's y we get undefinedbcz it looks above scope where it's declared whic is window as we don't have any username or title we get undefined
+  },
+  askToFriend() {
+    setTimeout(() => {
+      console.log(`Would you like to friend ${this.username}?`);   
+    }, 2000);  
+  } 
+}
+
+console.log(this); // this is window scope
+
+

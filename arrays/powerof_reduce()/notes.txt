@@ -1,0 +1,47 @@
+// to return a doubled array we have to give an empty array as default param and we have to push that using acc.push() at the end we have return the accumulator..this is the exact operazion we can do in map()
+
+  using reduce
+  -----------------
+const numbers= [1, 2, 3, 4, 5, 6];
+
+const doubledNumbers = numbers.reduce((acc, num) => {
+  acc.push(num * 2);
+  return acc;
+}, []);
+console.log('doubled numbers', doubledNumbers);
+console.log('numbers', numbers);
+
+
+using map
+-------------
+const numbers = [1, 2, 3, 4, 5, 6];
+
+const doubledNumbers = numbers.map(num => num * 2);
+console.log('doubled numbers', doubledNumbers);
+console.log('numbers', numbers);
+
+
+// checking if number greater than 4 and set this valu in an array this is exactly same as filter()
+let result=numbers.reduce((accu, num)=>{
+    if(num > 4){
+         accu.push(num) 
+    }
+        return accu  
+    
+  
+  
+},[])
+console.log(result)
+
+using filter() the above operation
+--------------------------------
+const greaterNumbers = numbers.filter(num => num > 3);
+console.log(greaterNumbers);
+
+
+concise way of reduce
+-------------------------
+const greaterNumbers = numbers.reduce((acc, num) => num > 3 ? acc.concat(num) : acc, []);
+console.log(greaterNumbers);
+
+note here we used acc.concat() to return that array,if we use push() like before we get error

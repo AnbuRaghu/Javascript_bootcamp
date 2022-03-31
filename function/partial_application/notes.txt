@@ -1,0 +1,3 @@
+partial applications for single responsibility function
+
+// this allows us to invoke a function to store a certain data and to reuse the stored data again and again to cut down our repetition and confusion in our apppb

@@ -1,0 +1,36 @@
+Map data type
+-------------------
+
+in object only strings can be used as keys
+object can't be used as key
+object can't be easily itereted over.. we can't easily get the length of object,
+how ever map solves all of these problems
+
+map can be created like this.. we have open and close square brackets and we can include over key value pairs inside another set of square brackets
+ const map1 = new Map([
+ [1, 4], // the 1st 1 is key the 4 is value
+ [true, true]  
+ ]);
+
+
+we can also assign new key value pairs for the map using 'set' method like this
+ map1.set('key', 'value');
+ 
+ e.g:2
+ 
+ we can give object as key in map
+ const user1 = { name: "john" }
+ const user2 = { name: "mary" }
+
+ const secretKey1 = "asldjfalskdjf";
+ const secretKey2 = "alksdjfakjsdf";
+//here instead of map we can use weakmap to easily garbage collecting to avoid heavy memory that comes using map
+ const secretKeyMap = new WeakMap([
+  [user1, secretKey1],
+  [user2, secretKey2]  
+]);
+
+
+we can get the key by using get() method
+const key = secretKeyMap.get(user1);
+console.log(key);

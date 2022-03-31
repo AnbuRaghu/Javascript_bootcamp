@@ -1,0 +1,67 @@
+more flexible array with desstructuring.. and rest operator
+---------------------------------------------------------------
+const finalMenuItems = [
+  "American Cheeseburger",
+  "Southern Fried Chicken",
+  "Glazed Salmon"
+];
+
+let first = finalMenuItems[0];
+let second = finalMenuItems[1];
+let third = finalMenuItems[2];
+
+console.log(first, second, third);
+just as we have object destructuring, we have also array destructuring, we can destructure an array like this
+const [first, second] = finalMenuItems;
+
+
+const finalMenuItems = [
+  "American Cheeseburger",
+  "Southern Fried Chicken",
+  "Glazed Salmon"
+];
+
+const [first, second] = finalMenuItems;
+//first will take the 1st index of the finalmenuitems array the second variable take the 2nd index
+
+// let first = finalMenuItems[0];
+// let second = finalMenuItems[1];
+// let third = finalMenuItems[2];
+
+// console.log(first, second, third);
+console.log({ first },{ second }); this gives an key value pair like this it'a trick like this
+{first: "American Cheeseburger"},{second: "Southern Fried Chicken"}
+
+
+we can swap arrrays by using array destructuring...
+..........................................................
+const finalMenuItems = [
+  "American Cheeseburger",
+  "Southern Fried Chicken",
+  "Glazed Salmon"
+];
+
+let [first, second] = finalMenuItems;
+
+[second, first] = [first, second];
+console.log({ first },{ second })
+
+
+
+using rest operator
+-----------------------
+it looks same as spread operator
+
+const finalMenuItems = [
+  "American Cheeseburger",
+  "Southern Fried Chicken",
+  "Glazed Salmon"
+];
+
+let [winner]=finalMenuItems;
+console.log(winner)
+what if ww wanna get the rest elements of an array here we can use rest operator it gives an array..in this case we wanna get the last two elements who are losers we can use it like this
+let [winner, ...losers]=finalMenuItems
+
+console.log({winner,losers})
+out put will be:{winner: "American Cheeseburger", losers: ["Southern Fried Chicken", "Glazed Salmon"]}

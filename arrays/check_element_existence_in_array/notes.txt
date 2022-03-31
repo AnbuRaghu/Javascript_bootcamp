@@ -1,0 +1,36 @@
+check element existence in array
+------------------------------------
+using includes,some,every
+
+
+const temperatures = [69, 82, 73, 64]; // 0, 1, 2, 3; -1
+
+console.log(temperatures.indexOf(50));
+traditionally to check if goven item exist in an array we use indexOf method which returns 1 if exists and returns -1 if not and if we wann a get boolean instead of 1 or -1.
+we know the result should be  0, 1, 2, 3; to return true.so just do so
+console.log(temperatures.indexOf(50) > -1); it gives false.. but it's not readable and confusing..
+however we have a better array method called includes() to do the operation..it gives directly whether it's true or fslse
+
+console.log(temperatures.includes(50));//false
+
+
+include only works with arrays whose values are primitives for example string numbers boolean..we can't check with includes() with this object
+
+const temperatures = [
+    { degrees: 69, isRecordTemp: false }, 
+    { degrees: 82, isRecordTemp: true }, 
+    { degrees: 73, isRecordTemp: false }, 
+    { degrees: 64, isRecordTemp: false }
+];
+
+console.log(temperatures.includes(50));
+
+using every
+--------------
+const result = temperatures.every(temperature => !temperature.isRecordTemp); // true / false
+console.log(result);
+
+using some
+------------
+const result = temperatures.some(temperature => temperature.isRecordTemp); // true / false
+console.log(result);

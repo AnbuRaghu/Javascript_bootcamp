@@ -1,0 +1,49 @@
+get and modify object data
+----------------------------
+
+the square bracket notation is the way to dxnamically get and update object keys and values based on changing data
+
+const color = 'black';
+const hexCode = '#000';
+
+const colors = {
+  'yellow Color': '#ff0',
+  blue: "#f00",
+  orange: "#f60",
+  [color]: hexCode
+};
+
+
+
+
+e.g2
+---------
+const color = 'black';
+const hexCode = '#000';
+
+const colors = {
+  'yellow Color': '#ff0',
+  blue: "#f00",
+  orange: "#f60",
+  [color]: hexCode
+};
+
+// colors[color] = hexCode;
+console.log(colors);
+
+function getColor(key) {
+   return colors[key];
+}
+
+
+// in this dot notation we cant get values dynamically
+// function getColor(key) {
+//   return colors.key;
+// }
+
+console.log(getColor('blue'));
+
+to delete object value
+------------------------
+delete colors.blue;
+console.log(colors);

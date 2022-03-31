@@ -1,0 +1,43 @@
+
+spread operator
+-----------------------
+const lunchMenuIdeas = ['Harvest Salad', 'Southern Fried Chicken'];
+
+const allMenuIdeas = lunchMenuIdeas;
+
+allMenuIdeas.push('Club Sandwich');
+
+console.log(lunchMenuIdeas);
+// if we use push our allmenuIdes also add to lunchmenuideas because we don't pass the copy of lunchmenuideas instead we pass the reference array is also like object..here
+//&const allMenuIdeas = lunchMenuIdeas;
+
+we can fix this using concat()..this method also gives an copy of the array it doesn't mutate the original array,,like this (non mutating array method)
+const lunchMenuIdeas = ['Harvest Salad', 'Southern Fried Chicken'];
+
+const allMenuIdeas = lunchMenuIdeas.concat('Club Sandwich');
+
+// allMenuIdeas.push('Club Sandwich');
+
+console.log(lunchMenuIdeas);
+
+
+or we can use spread operator to clone an array
+---------------------------------------------------------------
+const lunchMenuIdeas = ['Harvest Salad', 'Southern Fried Chicken'];
+
+const allMenuIdeas = [...lunchMenuIdeas];
+
+allMenuIdeas.push('Club Sandwich');
+
+console.log(allMenuIdeas);
+
+we can also reduce this like this not using push()
+-----------------------------------------------------------
+const lunchMenuIdeas = ['Harvest Salad', 'Southern Fried Chicken'];
+
+const allMenuIdeas = [...lunchMenuIdeas,'Club Sandwich'];
+
+
+
+console.log(lunchMenuIdeas);
+console.log(allMenuIdeas)

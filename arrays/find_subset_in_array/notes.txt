@@ -1,0 +1,31 @@
+get subsets of am array
+--------------------------
+
+we can use filter method to get subset of an array..filter gives many subsets that are matching the condition. if we wanna get only one matching element we can us find() like below
+
+const restaurants = [
+  { name: 'Cap City Diner', milesAway: 2.2 },
+  { name: 'Chop Shop', milesAway: 4.1 },
+  { name: 'Northstar Cafe', milesAway: 0.9 },
+  { name: 'City Tavern', milesAway: 0.5 },
+  { name: 'Shake Shack', milesAway: 5.3 }
+]
+
+
+filter()
+---------
+const results = restaurants.filter(restaurant => 
+  restaurant.name.startsWith('C') && restaurant.milesAway < 3
+)
+console.log(results);
+
+
+
+find()
+---------
+
+
+const results = restaurants.find(restaurant => 
+  restaurant.name.toLowerCase().includes('north') && restaurant.milesAway < 3
+)
+console.log(results);

@@ -1,0 +1,78 @@
+mold arrays with the spread operator
+-------------------------------------------------------
+note:slice() is immutable unlike push() and unshift()
+
+const breakfastMenuIdeas = ["Buckwheat Pancakes"];
+const dinnerMenuIdeas = ["Glazed Salmon", "Meatloaf", "American Cheeseburger"];
+
+const allMenuIdeas = ["Harvest Salad", "Southern Fried Chicken"];
+
+unshift adds items at the beginning in an array but as push() it also mutates the original array
+
+is there any method that adds item infront of an array that is not mutating ?
+we can just use like this
+// const otherMenuIdeas = [...breakfastMenuIdeas, ...allMenuIdeas];
+
+
+const breakfastMenuIdeas = ["Buckwheat Pancakes"];
+const dinnerMenuIdeas = ["Glazed Salmon", "Meatloaf", "American Cheeseburger"];
+
+const allMenuIdeas = [
+    ...breakfastMenuIdeas, 
+    "Harvest Salad", 
+    "Southern Fried Chicken",
+    ...dinnerMenuIdeas
+];
+console.log(allMenuIdeas);
+// const otherMenuIdeas = [...breakfastMenuIdeas, ...allMenuIdeas];
+// console.log(otherMenuIdeas);
+
+-----------------------------------------------------------------------------
+
+how to update or change an array element name, 
+................................................
+
+const breakfastMenuIdeas = ["Buckwheat Pancakes"];
+const dinnerMenuIdeas = ["Glazed Salmon", "Meatloaf", "American Cheeseburger"];
+
+const allMenuIdeas = [
+    ...breakfastMenuIdeas, 
+    "Harvest Salad", 
+    "Southern Fried Chicken",
+    ...dinnerMenuIdeas
+];
+
+
+// how to update or change an array element name, first we have to findindex of the element and then we have to spread that aaray and slice untill that element and the we have to spread again the array and slice the rest of the array
+const saladIndex = allMenuIdeas.findIndex(idea => idea === 'Harvest Salad');
+
+const finalMenuIdeas = [
+  ...allMenuIdeas.slice(0, saladIndex),// it removes the 'Harvest Salad' and we add the changing element  "Garden Salad", snd we slice rest element
+  "Garden Salad",
+  ...allMenuIdeas.slice(saladIndex + 1) // it gives the next element
+];
+
+console.log(finalMenuIdeas);
+
+---------------------------------------------------------------------------------------------------------
+how to delete an array element here 'Meatloaf'
+.................................
+
+const breakfastMenuIdeas = ["Buckwheat Pancakes"];
+const dinnerMenuIdeas = ["Glazed Salmon", "Meatloaf", "American Cheeseburger"];
+
+const allMenuIdeas = [
+    ...breakfastMenuIdeas, 
+    "Harvest Salad", 
+    "Southern Fried Chicken",
+    ...dinnerMenuIdeas
+];
+
+const saladIndex = allMenuIdeas.findIndex(idea => idea === 'Harvest Salad');
+
+const meatloafIndex = allMenuIdeas.findIndex(idea => idea === 'Meatloaf');
+
+const finalMenuIdeas = [
+  ...allMenuIdeas.slice(0, meatloafIndex), here we just have to slice and don't give any element then it will be removed
+  ...allMenuIdeas.slice(meatloafIndex + 1)
+]

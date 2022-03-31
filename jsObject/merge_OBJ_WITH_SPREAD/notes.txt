@@ -1,0 +1,52 @@
+merge object with spread
+---------------------------
+object.assign()
+// it let us to update an object with property from another object
+
+e.g:1
+const user = {
+  name: "",
+  username: "",
+  phoneNumber: "",
+  email: "",
+  password: ""  
+};
+
+const newUser = {
+  username: "ReedBarger",
+  email: "reed@gmail.com",
+  password: "mypassword"  
+};
+
+Object.assign(user, newUser); if we do so we are mutating the original user object 
+console.log(user);
+
+to avoid this we have to pass a empty {} as 1st parameter
+Object.assign({}, user, newUser);
+
+we can also add another property for our object
+Object.assign({}, user, newUser, { verified: false });
+
+
+
+e.g:2
+--------
+using spread opertaor
+-------------------
+const user = {
+  name: "",
+  username: "",
+  phoneNumber: "",
+  email: "",
+  password: "",
+  verified: true 
+};
+
+const newUser = {
+  username: "ReedBarger",
+  email: "reed@gmail.com",
+  password: "mypassword"  
+};
+
+const createdUser = { ...user, ...newUser, verified: false }; // it won't mutate the original user object
+console.log(createdUser);

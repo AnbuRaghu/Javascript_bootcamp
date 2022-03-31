@@ -1,0 +1,50 @@
+perform actions on all elements
+----------------------------------
+we can change values using map method in an array of elements
+like this here we cahnge the isRecordTemp for all elements to true
+const temperatures = [
+  { degrees: 69, isRecordTemp: false,  },
+  { degrees: 82, isRecordTemp: true },
+  { degrees: 73, isRecordTemp: false },
+  { degrees: 64, isRecordTemp: false }
+];
+
+const newTemps = temperatures.map(temperature => {
+   temperature.isRecordTemp = true; 
+   return temperature;
+});
+console.log(newTemps);
+
+
+add new values to an arrray of element
+--------------------------------------------
+
+here we add isHigh property to all elements
+const temperatures = [
+  { degrees: 69, isRecordTemp: false },
+  { degrees: 82, isRecordTemp: true },
+  { degrees: 73, isRecordTemp: false },
+  { degrees: 64, isRecordTemp: false }
+];
+
+const newTemps = temperatures.map(temperature => {
+   temperature.isHigh = true; 
+   return temperature;
+});
+console.log(newTemps);
+
+checking conditionally
+---------------------------
+here we check if degree is greater than 70 then add a property isHigh to true
+const temperatures = [
+  { degrees: 69, isRecordTemp: false },
+  { degrees: 82, isRecordTemp: true },
+  { degrees: 73, isRecordTemp: false },
+  { degrees: 64, isRecordTemp: false }
+];
+
+const newTemps = temperatures.map(temperature => 
+//here we get the old object values and merge them with new party ishigh
+temperature.degrees > 70 ? { ...temperature, isHigh: true } : temperature 
+);
+console.log(newTemps);

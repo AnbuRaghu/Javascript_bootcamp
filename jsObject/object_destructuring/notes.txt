@@ -1,0 +1,33 @@
+Object destructuring
+-----------------------
+const user = {
+  name: "Reed",
+  username: "Reedbarger",
+  email: "reed@gmail.com",
+  details: {
+    title: "Programmer"  
+  }  
+};
+
+
+how can we destructure a nested object in this case title key there are 2 ways but the 2nd way is prefereed
+
+// const { title } = user.details
+here we go one levele deeper to get the title property like this
+const { name, details: { title} } = user;
+
+function displayUserBio() {
+  console.log(`${name} is a ${title}`); 
+}
+
+displayUserBio()
+
+object destructuring in function parameter
+--------------------------------------------
+//function displayUserBio(data) { instead of this
+
+function displayUserBio({ name, details: { title} }) {
+  console.log(`${name} is a ${title}`); 
+}
+
+displayUserBio(user);

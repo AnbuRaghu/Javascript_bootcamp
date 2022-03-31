@@ -1,0 +1,37 @@
+reduce
+-----------
+const menuItems = [
+  { item: "Blue Cheese Salad", price: 8 },
+  { item: "Spicy Chicken Rigatoni", price: 18 },
+  { item: "Ponzu Glazed Salmon", price: 23 },
+  { item: "Philly Cheese Steak", price: 13 },
+  { item: "Baked Italian Chicken Sub", price: 12 },
+  { item: "Pan Seared Ribeye", price: 31 }
+];
+
+reduce returns accumulator
+----------
+menuItems.reduce((accumulator, menuItem) => {
+  return accumulator;  
+}, 0);
+
+
+other arraymethod returns menuitem alias each value
+-------------------------------------------------
+menuItems.reduce((accumulator, menuItem) => {
+  return menuItem;  
+}, 0)
+
+menuItems.reduce((accumulator, ) => {}, 0);
+unlike other array method in reduce we have a extra value called accumulator as 1st value and it returns the accumulater but other array method returns the menuitem in this case
+
+
+
+the first thing we have to do in reduce to return accumulator 
+menuItems.reduce((accumulator, menuItem) => {
+  return accumulator ; 
+}, 0);
+then we can add our item to accumulator like this,in the first iteration accumulator would be set to default 0 value and then we add our menuittems
+menuItems.reduce((accumulator, menuItem) => {
+  return accumulator + menuItem.price;  
+}, 0);
