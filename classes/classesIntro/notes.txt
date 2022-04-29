@@ -1,0 +1,20 @@
+// classes === constructor functions
+// classes - create objects with shared methods
+
+// function Student() {}
+In constructor function we have () this parenthess to add properties
+ But in class we don't have () parenthesis to pass properties we pass the in side construtor()
+//console.log(typeof class Student {});//function
+
+class Student {
+  constructor(id, name, subjects = []) {
+    this.id = id;
+    this.name = name;
+    this.subjects = subjects;      
+  }  
+    
+  addSubject() {}   any method that is declared inside class are the property of that class and we have the this context of above object inside any method that is in the class
+}
+
+// const student1 = Student(1, 'Reed');
+// console.log(student1);

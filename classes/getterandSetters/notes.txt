@@ -1,0 +1,94 @@
+class Product {
+  constructor(name, price, discountable) {
+    this.name = name;
+    this.price = price;
+    this.discountable = discountable;
+  }
+
+  getClearancePrice() {
+    return this.price * 0.5;
+  }
+}
+
+const product1 = new Product("Coffee Maker", 99.95, false);
+product1.price = {};
+console.log(product1.getClearancePrice())
+what can we do public data on object to prevent it's data is being tempered with so that it breaks our program.. we can't make object data private yet in js.. but we can make use of two class feature to help us out and those are getters and setters
+
+to create a getter just add get keyword in front of the method like this :
+get ClearancePrice() {
+    return this.price * 0.5;
+  }
+  
+  to use getters we can just say jusst like this and run it by referencing it like it's a a property
+  console.log(product1.clearancePrice);// referncing just like property
+    console.log(product1.clearancePrice());// we call the function for using getter we can just reference the getter method. in this case thw 1st is correct
+    
+    this makes information easier to retrieve but it doesn't solve our problem when someone setting a value that'is invalid type in this case setting the price value to object like this // product1.price = {};
+    
+    const product1 = new Product("Coffee Maker", 99.95, false);
+// product1.price = {};
+console.log(product1.clearancePrice);
+
+to fix that we need to set corresponding setter.. setter works similar to getter it uses the same syntax but it does the opposite..getter is a method that work like a property however setter accepts a single argument and changes the property rather than retrieves it..as it works like property we don't pass argument using () instead we use = to set values..to create seeter we use set key word.when it comes to setter it needs to have a corresponding getter or else you can't retrieve the value that was set
+
+ set newPrice(price) {
+     this.price = price;  
+  }
+}
+
+
+e.g:
+class Product {
+  constructor(name, price, discountable) {
+    this.name = name;
+    this.price = price;
+    this.discountable = discountable;
+  }
+
+  get clearancePrice() {
+    return this.price * 0.5;
+  }
+  
+  set newPrice(price) {
+     this.price = price;  
+  }
+}
+
+const product1 = new Product("Coffee Maker", 99.95, false);
+// product1.price = {};
+//console.log(product1.clearancePrice);
+
+product1.newPrice = 20;
+console.log(product1.newPrice);
+
+----------------------------------------------------------------------------
+bridge property:
+
+the way that we indicate to other developer that a property shouldn't be modified is by prefixing it with an underscore.so if we see ac class that has a property begins with underscore,,note that it shouldn't be modified.. and we can name the setters and getters with the same name of the property but without underscore to access or update the value
+
+e.g
+class Product {
+  constructor(name, price, discountable) {
+    this.name = name;
+    this._price = price;
+    this.discountable = discountable;
+  }
+
+  get price() {
+    return this._price;
+  }
+  
+  set price(price) {
+    if (typeof price !== "number") {
+      return this._price;
+    } else {
+      this._price = price; 
+    }
+  }
+}
+
+const product1 = new Product("Coffee Maker", 99.95, false);
+product1.price = 'aslfdjkas'// if any one give invalid value it doesn't work it gives the original price..we can still change the price if it's a number
+product1.price = 30
+console.log(product1.price);

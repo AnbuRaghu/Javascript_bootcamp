@@ -1,0 +1,27 @@
+queryselector all doesn't pick up an element which is added by js dynamically
+in this case if we add one more post through js click event wouldn't work for tht post..how can we fix this instead of doing the addeventlisner for each element like below we can do as in 2nd example
+
+e.g1
+const posts = document.querySelectorAll(".post");
+posts.forEach(post => {  
+  post.addEventListener('click', event => {
+  //   console.log(event.target);  
+    console.log('Do you want to edit this post?')
+  });
+});
+
+e.g2
+-------
+document.body.addEventListener('click', event => {
+  console.log('Do you want to edit this post?')  
+})
+but it starts the click event mouse is clicked any where in the body
+to fix this we can use the following example using event.target and matches()
+
+document.body.addEventListener('click', event => {
+  event.target.matches('.post')
+  console.log('Do you want to edit this post?')  
+})
+but it also a problem bcz matches method matches the exactly same element
+
+to fix this we can use another element method() which is closest()

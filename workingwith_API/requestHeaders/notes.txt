@@ -1,0 +1,4 @@
+Request Headers
+-----------------
+*extra/meta information about the outgoing request
+*header can include the type of authentication you send on this request or body info or the client info means the browser info we use

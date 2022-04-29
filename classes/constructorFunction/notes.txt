@@ -1,0 +1,50 @@
+/*const student1 = {
+  id: 1,
+  name: "Reed",
+  subjects: [],
+  addSubject(subject) {
+    this.subjects = [...this.subjects, subject]; this is equvalent to push()
+  }
+}
+// constructor function 
+the name of constructor function should start with capital e.g:Student
+function Student(id, name, subjects) {
+  this.id = id;
+  this.name = name;
+  this.subjects = subjects;  
+}
+*/
+
+// student1.addSubject('Math');
+// console.log(student1.subjects);
+function Student(id, name, subjects = []) {
+  this.id = id;
+  this.name = name;
+  this.subjects = subjects;  
+}
+
+console.log(new Student(1, 'Reed'));
+
+// student1.addSubject('Math');
+// console.log(student1.subjects);
+
+functions are just special js object as a result function can have properties just like any other js type..let'see how to add this addSubject method which we had above to the constructor function
+
+first we have give the constructor nbame and the prototype property and the name of function and set it to the function key word,it should be function declaration we can't use arrow function here
+
+function Student(id, name, subjects = []) {
+  this.id = id;
+  this.name = name;
+  this.subjects = subjects;  
+}
+
+Student.prototype.addSubject = function(subject) {
+  this.subjects = [...this.subjects, subject];   
+}
+
+const student1 = new Student(1, 'Reed');
+const student2 = new Student(2, 'Doug');
+
+student1.addSubject('Math');
+student2.addSubject('Physics');
+console.log(student2.subjects);

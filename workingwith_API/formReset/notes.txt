@@ -1,0 +1,4 @@
+reset form
+-------------
+if we have multiple input the way to clrar form is using following method
+form.reset()

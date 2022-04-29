@@ -1,0 +1,22 @@
+HTTP request
+---------------
+what is protocol??
+in simple language protocol is an aggreed- upon standard way of doing something
+
+http is a protocol for determining how hypertext (text) should be transfered over the internet.
+
+components of REQUEST
+-------------------------
+1.path(url)
+2 methods:
+   GET, POST,PUT,DELETE
+   OTHERmehods(PATCH, OPTIONS, ETC)
+3. body : this one is sort of optional you will include body in some request and you won't include body in some other request
+4.headers:
+  headers are like meta information about the request they can include details like what kind of browser or operating system is sending the request. sometimes it will include things like an authentication token if you are asking for a protected resource.in short it's a extra information which isn't included  in path or method or in the body
+  
+  
+  
+  there are also some more protocols
+  SMTP: small mail transfer protocol
+  ftp: file transfer protocol

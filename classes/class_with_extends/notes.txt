@@ -1,0 +1,61 @@
+// super is the method that used in constructor method and calls the constructor method of the class which is being extended in this case Product calss and we need to pass the values which we wqnt to inherit from parent class and we have to add that values in inheriting class constructor too
+
+
+ what about inheriting a method we have to use super key word and the name of function to call the function in child class
+ -----------------------------------------------------------------------------
+ 
+ e.g:1
+ class Product {
+  constructor(name, price, discountable) {
+    this.name = name;
+    this.price = price;
+    this.discountable = discountable;  
+  }  
+}
+
+class SaleProduct extends Product {
+  constructor(name, price, discountable,percentOff) {
+     super(name, price, discountable);// super is the method that used in constructor method and calls the constructor method of the class which is being extended in this case Product calss and we need to pass the values which we wqnt to inherit from parent class and we have to add that values in inheriting class constructor too
+     this.percentOff = percentOff; 
+  }  
+}
+
+const product1 = new SaleProduct("Coffee Maker", 99, true, 20);
+console.log(product1)
+
+
+ -----------------------------------------------------------------------------
+ e.g:2
+ class Product {
+  constructor(name, price, discountable) {
+    this.name = name;
+    this.price = price;
+    this.discountable = discountable;  
+  }  
+  
+  isDiscountable() {
+    return this.discountable;  what about inheriting a method we have to use super key word and the name of function to call the function in child class
+  }
+}
+
+class SaleProduct extends Product {
+  constructor(name, price, discountable, percentOff) {
+     super(name, price, discountable);
+     this.percentOff = percentOff; 
+  }  
+  
+  getSalePrice() {
+       what about inheriting a method we have to use super key word and the name of function to call the function in child class
+     if (super.isDiscountable()) {
+       return this.price * ((100 - this.percentOff) / 100);
+     } else {
+        return `${this.name} is not eligible for a discount`;
+     }
+  }
+}
+
+const saleProduct1 = new SaleProduct("Coffee Maker", 99, false, 20);
+console.log(saleProduct1.getSalePrice());
+
+// React 
+// https://reactjs.org

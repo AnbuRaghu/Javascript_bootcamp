@@ -1,0 +1,81 @@
+
+get unique sets of data
+.................................................
+const customerDishes = [
+  "Chicken Wings",
+  "Fish Sandwich",
+  "Beef Stroganoff",
+  "Grilled Cheese",
+  "Blue Cheese Salad",
+  "Chicken Wings",
+  "Reuben Sandwich",
+  "Grilled Cheese",
+  "Fish Sandwich",
+  "Chicken Pot Pie",
+  "Fish Sandwich",
+  "Beef Stroganoff"
+];
+
+set is a special object type where each value in it can only occur once..in other words it enforces uniquness of it's element.. we can create a set like this
+new Set([1,2,3])
+
+we can check the length by using size property
+console.log(new Set([1,2,3]).size)// 3
+what if we replace the 2 in to 1
+console.log(new Set([1,1,3]).size)// 2 here size will be 2 bcz set ignores automatically any repeated value
+what if we try to do So:
+
+console.log(new Set([[1], [1], [3]]).size);//here size will be 3 although elements of array hav same value the reason is set can't compare object by value becuze array is an object type in other word reference type
+
+
+to get the value of ser we have to itereate over it
+
+
+const numbers = new Set([[1], [2], [3]]);
+
+for (const num of numbers) {
+  console.log(num);  
+}
+
+
+this new object type can also be converted into an array..and this is possible due to spread operator..quick note spread operator works with any iterable
+
+
+
+const customerDishes = [
+  "Chicken Wings",
+  "Fish Sandwich",
+  "Beef Stroganoff",
+  "Grilled Cheese",
+  "Blue Cheese Salad",
+  "Chicken Wings",
+  "Reuben Sandwich",
+  "Grilled Cheese",
+  "Fish Sandwich",
+  "Chicken Pot Pie",
+  "Fish Sandwich",
+  "Beef Stroganoff"
+];
+
+const uniqueDishes = [...new Set(customerDishes)];// we just spread over the new set into an array using...
+console.log(uniqueDishes)
+
+
+
+Feature to remember
+----------------------
+/* 
+- map()
+- filter()
+- reduce()
+- some() / every()
+- find() / findIndex()
+- forEach()
+
+Plus:
+
+- slice()
+- concat()
+- includes()
+- array spread operator
+*/

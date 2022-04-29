@@ -1,0 +1,26 @@
+request Body
+---------------------------
+
+Body
+* the data we want to send to the server
+* only make sense with POST and PUT requests
+* needs to be turned into JSON first
+
+
+
+ Don't add the .then() blocks yet - we have 1 more thing 
+  to do before it'll work correctly
+
+Part 2 - add the .then blocks to check the data coming back
+
+*/
+
+fetch("https://apis.scrimba.com/jsonplaceholder/todos", {
+    method: "POST",
+    body: JSON.stringify({
+        title: "Buy Milk",
+        completed: false
+    })
+})
+    .then(res => res.json())
+    .then(data => console.log(data))

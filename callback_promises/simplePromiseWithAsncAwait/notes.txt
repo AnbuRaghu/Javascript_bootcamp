@@ -1,0 +1,52 @@
+async function 
+---------------
+normal function:
+async function getBlogPost() {}
+
+arrow function:in arrow function async keyword should be infront of ()=>{} like shown below
+const getBlogPost = async () => {}
+when we use async keyword before any function it always return promise
+
+e.g:1
+async function getBlogPost() {
+  return 'works here too!';  
+}
+
+getBlogPost().then(value => console.log(value));// we can get the return value from the function in then(value => {}) block as parameter 'value
+
+using normal promose
+-------------------------
+ function getBlogPost() {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('blog post'), 1000);
+  });
+  
+  promise
+    .then(value => console.log(value))
+    .finally(() => console.log('done'));
+}
+
+getBlogPost()
+
+await keyword:
+.---------------
+await pauses our code on the line it's used and resolve our promise and alloe´ws us to immediatels use the resolved value as we like and resumes the function.after resolving our function is going to be resumed and we can do whatever we want afterwards and believe it or not we can call the getblogpost function like we do any syncronous function without writting any then() block like below
+note:async works without await as shown in 1st example but await doesnt work without async
+
+
+making fetch request using async await
+// const response = fetch('https://jsonplaceholder.typicode.com/posts/1');
+//   .then(response => response.json())
+//   .then(data => console.log(data));
+
+async function getPost(){
+    const res=await fetch('https://jsonplaceholder.typicode.com/posts/1');
+    // AS 2ND then() also returs promise we should also use await here too
+    const data =await res.json() 
+    console.log(data)
+    
+   
+    
+    
+}
+getPost()

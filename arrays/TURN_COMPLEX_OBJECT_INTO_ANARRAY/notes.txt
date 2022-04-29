@@ -1,0 +1,90 @@
+turn objects into flexible arrays
+-----------------------------------
+
+const obj = { one: 1, two: 2 };
+
+for (const key in obj) {
+  console.log('value', obj[key]);
+}
+
+im many cases we convert our object data into a flexible data structure namely array data.. we can convert object into an array in three ways with the help of inbuilt Object methods..these are:
+
+Object.keys(), Object.values(), Object.entries()
+
+Object.keys(),
+it allows us to take the key of an object and turn them into an array
+
+e.g
+const user = {
+  name: 'John',
+  age: 29  
+};
+
+console.log(Object.keys(user)); here we get an array where name and age are two elements 
+output:["name", "age"]
+
+
+we can use this method to check whether a key exists on an object like this:
+const ageExists = Object.keys(user).includes('age');
+console.log(ageExists);//true
+
+
+we can also get the values by mapping Over
+const user = {
+  name: 'John',
+  age: 29  
+};
+
+const values = Object.keys(user).map(key => user[key]);// user is the actual object then we pass the key like this:user[key]
+console.log(values);
+output:["John", 29]
+
+
+finding sum of this object values using Object.vaues() and reduce ()
+------------------------------------------------------------------------
+
+const monthlyExpenses = {
+  food: 400,
+  rent: 1700,
+  insurance: 550,
+  internet: 49,
+  phone: 95  
+};
+
+let expe=Object.values(monthlyExpenses).reduce((accu,ex)=>{
+    return accu + ex
+},0)
+
+console.log(expe)
+
+---------------------------------------------------------------------------------------
+how to turn complex objects into a flexible array and perfom actions on it using array methods:
+
+here we get the user whose age is greater than 20
+
+
+const users = {
+  '2345234': {
+    name: "John",
+    age: 29
+  },
+  '8798129': {
+    name: "Jane",
+    age: 42
+  },
+  '1092384': {
+    name: "Fred",
+    age: 17 
+  }
+};
+
+when we chage this complex object using Object.entries, we get an array which looks like this
+[["1092384", {name: "Fred", age: 17}], ["2345234", {name: "John", age: 29}], ["8798129", {name: "Jane", age: 42}]] and we destructure fromhere Id AND THE USER OBJECT IN REDUCE() LOKE SHOWN BELOW
+
+const usersOver20 = Object.entries(users).reduce((acc, [id, user]) => { // this is array destructuring
+  if (user.age > 20) {
+    acc.push({ ...user, id });
+  }  
+  return acc;
+}, []);
+console.log(usersOver20);

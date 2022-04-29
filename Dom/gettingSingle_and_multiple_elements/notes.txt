@@ -1,0 +1,20 @@
+get Single and multiple Elements
+-----------------------------------
+matches mathod gives you the exact element you want
+
+ const links = document.querySelectorAll('a');
+// // console.log(link);
+
+ links.forEach(link => {
+   if (link.matches('a[href="/login"]')) {
+     const loginLink = link;
+     console.log(loginLink);  
+   }
+ })
+ 
+ 
+ it gives htmlcollection not a nodelist so iterating over would be complex
+ 
+ const divs = document.getElementsByTagName('div')
+// console.log(divs);
+
