@@ -1,0 +1,20 @@
+// Imperative - code for a computer / declarative - code for people
+// for loop is imperative 
+const people = ['Doug', 'Fred', 'Jane'];
+const invitations = [];
+
+for (let i = 0; i < people.length; i++) {
+    invitations[i] = `Hi ${people[i]}, come to my party!`;
+}
+
+console.log(invitations);
+
+
+we can change it to declarative like below
+----------------------------------------------
+
+
+const people = ['Doug', 'Fred', 'Jane'];
+const invitations = people.map(person => `Hi ${person}, come to my party!`);
+
+console.log(invitations);

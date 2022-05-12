@@ -1,0 +1,38 @@
+modules
+--------------
+to make modules all we have to do is set the type property to module like below
+
+<html>
+    <head></head>
+    <body>
+        <script src="index.js" type="module></script>
+    </body>
+</html>
+
+we can use default export if we have one thing to be exported
+
+
+/*export function getDate() {
+  const date = new Date();  
+  return date;
+}*/
+
+//export const year = new Date().getFullYear();
+
+////instead of exporting every single thing we can use the same named export technique by exporting //too like below
+
+function getDate() {
+  const date = new Date();  
+  return date;
+}
+const year = new Date().getFullYear();
+//named export
+export { getDate, year };
+
+
+// default export
+export default function getDate() {
+  const year = new Date().getFullYear();
+  const date = `${new Date()}, year: ${year}`;  
+  return date;
+}

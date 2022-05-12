@@ -21,3 +21,6 @@ console.log(uniqueDishes)
 // for (const num of numbers) {
 //   console.log(num);  
 // }
+function name(){
+  console.log('hello')
+}
