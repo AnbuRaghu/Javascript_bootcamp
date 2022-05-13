@@ -15,6 +15,7 @@ const customerDishes = [
 
 const uniqueDishes = [...new Set(customerDishes)];
 console.log(uniqueDishes)
+console.log(c)
 
 // const numbers = new Set([[1], [2], [3]]);
 

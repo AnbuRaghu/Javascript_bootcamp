@@ -6,3 +6,5 @@ newPost.innerHTML = "<strong>This is a new post</strong>"
 const post = document.querySelector('.post');
 
 post.prepend(newPost);
+
+

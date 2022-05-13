@@ -1,0 +1,37 @@
+making components
+----------------------
+
+
+
+import Story from '../components/Story.js';
+import view from '../utils/view.js';
+
+export default async function Stories(path) {
+  const stories = await getStories(path);
+  const hasStories = stories.length > 0;
+                    
+  view.innerHTML = `<div>
+  //here we call the Story function which is a component and we wanna set number to each stories so we get index from map and we pass that to the Story function as object like this Story({ ...story, index: i + 1 })).join8('') join means to remove commas
+    ${hasStories ? stories.map((story, i) => Story({ ...story, index: i + 1 })).join('') : 'No stories'}
+  </div>`;  
+}
+
+async function getStories(path) {
+  const isHomeRoute = path === '/';
+  const isNewRoute = path === '/new';
+  if (isHomeRoute) {
+    path = '/news';  
+  } else if (isNewRoute) {
+    path = '/newest';  
+  } 
+  const response = await fetch(`https://node-hnapi.herokuapp.com${path}`);
+  const stories = await response.json();
+  return stories;
+}
+
+// https://node-hnapi.herokuapp.com
+
+// / (Top) -> /news
+// /new (New) -> /newest
+// /ask (Ask) -> /ask
+// /show (Show) -> /show 
