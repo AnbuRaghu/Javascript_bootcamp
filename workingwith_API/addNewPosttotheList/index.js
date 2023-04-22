@@ -38,19 +38,19 @@ document.getElementById("new-post").addEventListener("submit", function(e) {
              */
               /**
            this will add the new post below the existing post
-           
+              */
             document.getElementById("blog-list").innerHTML += `
                 <h3>${post.title}</h3>
                 <p>${post.body}</p>
                 <hr />
             `
-              */
+           
               
                /**  but if we wanna add the new post at the beginning we can use like this */
-               document.getElementById("blog-list").innerHTML = `
-                <h3>${post.title}</h3>
-                <p>${post.body}</p>
-                <hr />
-                ${document.getElementById("blog-list").innerHTML}
+            //    document.getElementById("blog-list").innerHTML = `
+            //     <h3>${post.title}</h3>
+            //     <p>${post.body}</p>
+            //     <hr />
+            //     ${document.getElementById("blog-list").innerHTML}
         })
 })

@@ -10,7 +10,8 @@ const user = {
 const newUser = {
   username: "ReedBarger",
   email: "reed@gmail.com",
-  password: "mypassword"  
+  password: "mypassword"  ,
+  name:'anbu'
 };
 
 const createdUser = { ...user, ...newUser, verified: false };

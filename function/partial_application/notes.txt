@@ -1,3 +1,25 @@
 partial applications for single responsibility function
 
-// this allows us to invoke a function to store a certain data and to reuse the stored data again and again to cut down our repetition and confusion in our apppb
+// this allows us to invoke a function to store a certain data and to reuse the stored data again and again to cut down our repetition and confusion in our app
+
+
+new notes from chtgpt
+Partial application is a technique used in JavaScript to create new functions by fixing some of the arguments of an existing function. When you partially apply a function, you create a new function that takes fewer arguments than the original function.
+
+In JavaScript, you can use the bind() method to partially apply a function. The bind() method creates a new function that has the same body as the original function but with some of its arguments pre-set.
+
+function multiply(x, y) {
+  return x * y;
+}
+
+// partially apply multiply() with the first argument set to 2
+const double = multiply.bind(null, 2);
+
+// call the new function with the second argument set to 3
+console.log(double(3)); // outputs 6
+
+
+
+In the example above, we partially apply the multiply() function with the first argument set to 2, creating a new function called double. When we call double(3), the function multiplies 2 and 3 together, returning the result of 6.
+
+Partial application is a useful technique when you have a function with many arguments but you want to reuse it with some of those arguments pre-set. It can make your code more concise and easier to read.

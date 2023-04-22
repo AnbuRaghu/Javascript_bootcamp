@@ -17,19 +17,23 @@ function getData(baseUrl) {
     return function(callback) {    
       fetch(`${baseUrl}${route}`)
         .then(response => response.json())
-        .then(data => callback(data));  // we set the fetched data to a callback function passed through parameter
+        .then(data =>callback(data));  // we set the fetched data to a callback function passed through parameter
     }     
   }  
 }
 
 const getSocialMediaData = getData('https://jsonplaceholder.typicode.com'); // this returns the first inner function
-console.log(getSocialMediaData)
+
 
 const getSocialMediaPosts = getSocialMediaData('/posts'); //this returns the 2nd inner function
 const getSocialMediaComments = getSocialMediaData('/comments');
 
 getSocialMediaPosts(posts => {
   posts.forEach(post => console.log(post.title));  
+});
+
+getSocialMediaComments(posts => {
+  posts.forEach(post => console.log(post.name));  
 });
 // getData('https://jsonplaceholder.typicode.com', '/posts');
 // getData('https://jsonplaceholder.typicode.com', '/comments');
